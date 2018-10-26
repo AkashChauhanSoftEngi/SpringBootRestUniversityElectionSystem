@@ -2,8 +2,8 @@
 
 > **###1. Requirements**
 * One Student can choose listed members only or in another words, if they exist in Person table. Other wise Exception must be thrown.
-* One person can choose one post for the Election, Other wise Exception must be thrown.
-* Student can not choose, same member from Person table for mulitple posts
+* One person can only choose one post for the Election {it can easily be resolved by making Person.name as primary key}.
+* Student can not choose, same member from Person table for mulitple posts. Other wise Exception must be thrown.
 
 > **###2. Steps to achieve these requirements**
 * Make Student.name and Person.name primary key of respective tables. So no two entries can have same names.
