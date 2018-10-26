@@ -6,9 +6,9 @@
 * Student can not choose, same member from Person table for mulitple posts. Other wise Exception must be thrown.
 
 > **###2. Steps to achieve these requirements**
-* Make Student.name and Person.name primary key of respective tables. So no two entries can have same names.
-* Check if Student enters duifferent members for multiple positions before storing into the database.
-* Before storing any student into Student table, there should be a conditional check if the name selected for posts exist in Person table   or not.
+* Make Student.name and Person.name primary key of respective tables. So no two entries can have same names. Other wise throw an Exception.
+* Check if Student enters different members for multiple positions before storing into the database. Other wise throw an Exception.
+* Before storing any student into Student table, there should be a conditional check if the name selected for posts exist in Person table   or not. Other wise throw an Exception.
 
 > **###3. Technologies**
 * Spring Boot 2.0.3.RELEASE (Latest)
