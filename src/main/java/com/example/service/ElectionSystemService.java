@@ -1,6 +1,7 @@
 package com.example.service;
 
 import com.example.dto.PersonDto;
+import com.example.dto.PostDto;
 import com.example.dto.StudentDto;
 
 public interface ElectionSystemService {
@@ -9,11 +10,5 @@ public interface ElectionSystemService {
 	String findElectedPresident();
 	String findElectedVicePresident();
 	String findElectedSecretary();
-	
-	
-	/*
-	 * String findElectedPresident();
-	 * String findElectedVicePresident();
-	 * String findElectedSectratory();
-	 * */
+	PostDto savePosts(PostDto post);
 }

@@ -14,10 +14,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.dto.PersonDto;
+import com.example.dto.PostDto;
 import com.example.dto.StudentDto;
 import com.example.entity.Person;
+import com.example.entity.Post;
 import com.example.entity.Student;
 import com.example.repository.PersonRepository;
+import com.example.repository.PostRepository;
 import com.example.repository.StudentRepository;
 
 @Service
@@ -28,6 +31,9 @@ public class ElectionSystemServiceImpl implements ElectionSystemService {
 
 	@Autowired
 	PersonRepository personRepository;
+	
+	@Autowired
+	PostRepository postRepository;
 
 	@Override
 	public StudentDto saveStudent(StudentDto inStudentDto) {
@@ -57,11 +63,16 @@ public class ElectionSystemServiceImpl implements ElectionSystemService {
 
 	@Override
 	public PersonDto savePerson(PersonDto inPersonDto) {
-		Person outPerson = new Person();
-		BeanUtils.copyProperties(inPersonDto, outPerson);
-		outPerson = personRepository.save(outPerson);
-		BeanUtils.copyProperties(outPerson, inPersonDto);
-		return inPersonDto;
+		Optional<Post> post = postRepository.findById(inPersonDto.getPost());
+		if(post.isPresent()){
+			Person outPerson = new Person();
+			BeanUtils.copyProperties(inPersonDto, outPerson);
+			outPerson = personRepository.save(outPerson);
+			BeanUtils.copyProperties(outPerson, inPersonDto);
+			return inPersonDto;
+		}else{
+			return null;
+		}
 	}
 
 	@Override
@@ -151,4 +162,14 @@ public class ElectionSystemServiceImpl implements ElectionSystemService {
 		return reverseKeysAndValues.get(max);
 	}
 
+	@Override
+	public PostDto savePosts(PostDto inPostDto) {
+		
+		Post outPost = new Post();
+		BeanUtils.copyProperties(inPostDto, outPost);
+		outPost = postRepository.save(outPost);
+		BeanUtils.copyProperties(outPost, inPostDto);
+		return inPostDto;
+		
+	}
 }
