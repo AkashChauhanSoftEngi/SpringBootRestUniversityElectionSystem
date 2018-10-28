@@ -22,9 +22,10 @@
 * $ git clone https://github.com/AkashChauhanSoftEngi/SpringBootRestUniversityElectionSystem
 * $ tomcat {Embedded}
 
-> **###5.  Access** 
-* http://localhost:8080/student with POST
-* http://localhost:8080/person with POST
+> **###5.  Access/End Points** 
+* http://localhost:8080/addPost with POST
+* http://localhost:8080/addPerson with POST
+* http://localhost:8080/addStudent with POST
 * http://localhost:8080/findElectedPresident with GET
 * http://localhost:8080/findElectedVicePresedent with GET
 * http://localhost:8080/findElectedSecretary with GET
