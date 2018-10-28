@@ -41,3 +41,24 @@
 * addPost API must be executed before addPerson API, and addPerson API must be executed before addStudent API
   - addPost > addPerson > addStudent
   - In addPerson person must enter post already existed in Post table, and in addStudent Student must enter person already existed in Person table
+  
+> **###7. Internal Work flow of each End point or API
+* Example: addStudnet
+```text
+                      Student {name, choiceForPresident, choiceForVicePresident, choiceForSecretary}
+                                                      ||
+                                                      \/
+                                       Rest Controller {Post: /addStudent}
+                                                      ||
+                                                      \/
+                               ElectionSystemService {Interface, saveStudent() method}
+                                                      ||
+                                                      \/
+                          ElectionSystemServiceImpl {Implementation, saveStudent() method}  
+                                                      ||
+                                                      \/
+                          StudentRepository {save(Student), JpaRepository<Student, String>}             
+                                                      ||
+                                                      \/
+                                             DAO {student table}
+```
