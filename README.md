@@ -42,8 +42,8 @@
   - addPost > addPerson > addStudent
   - In addPerson person must enter post already existed in Post table, and in addStudent Student must enter person already existed in Person table
   
-> **###7. Internal Work flow of each End point or API
-* Example: addStudnet
+> **###7. Internal Work flow of End point or API 
+* Example: /addStudnet
 ```text
                       Student {name, choiceForPresident, choiceForVicePresident, choiceForSecretary}
                                                       ||
@@ -51,14 +51,14 @@
                                        Rest Controller {Post: /addStudent}
                                                       ||
                                                       \/
-                               ElectionSystemService {Interface, saveStudent() method}
+                             ElectionSystemService {Interface, saveStudent() method}
                                                       ||
                                                       \/
-                          ElectionSystemServiceImpl {Implementation, saveStudent() method}  
+                   ElectionSystemServiceImpl {Implementation, saveStudent() method, Use Dto classes}  
                                                       ||
                                                       \/
                           StudentRepository {save(Student), JpaRepository<Student, String>}             
                                                       ||
                                                       \/
-                                             DAO {student table}
+                     DAO {student table, return back after saving the data in the student table}
 ```
