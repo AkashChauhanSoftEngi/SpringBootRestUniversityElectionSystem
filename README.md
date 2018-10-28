@@ -3,12 +3,15 @@
 ## 1. Requirements
 * One Student can choose listed members only or in another words, if they exist in Person table. Other wise Exception must be thrown.
 * One person can only choose one post for the Election {it can easily be resolved by making Person.name as primary key}.
+* Person should not be able to enter post not existed in post table
 * Student can not choose, same member from Person table for mulitple posts. Other wise Exception must be thrown.
 
 ## 2. Steps to achieve these requirements
 * Make Student.name and Person.name primary key of respective tables. So no two entries can have same names. Other wise throw an Exception.
 * Check if Student enters different members for multiple positions before storing into the database. Other wise throw an Exception.
-* Before storing any student into Student table, there should be a conditional check if the name selected for posts exist in Person table   or not. Other wise throw an Exception.
+* Before storing any student into Student table, there should be a conditional check if the name selected for posts exist in Person table or not. Other wise throw an Exception.
+* Before storing any person into Person table, there should be a conditional check if the chosen post exists in Post table or not. Other wise throw an Exception.
+* addPost must be executed before addPerson, and addPerson must be executed before addStudent
 
 ## 3. Technologies
 * Spring Boot 2.0.3.RELEASE (Latest)
@@ -66,4 +69,4 @@
 ```
 
 ## 8. Database Schema Design
-* Related files added above with names: "SchemaDesign.docx" or "SchemaDesignPhoto.PNG"
+* Related files added above with names: "SchemaDesignPhoto.PNG" and "SchemaDesign.docx" 
