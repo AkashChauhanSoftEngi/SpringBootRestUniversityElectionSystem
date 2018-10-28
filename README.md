@@ -23,9 +23,21 @@
 * $ tomcat {Embedded}
 
 > **###5.  Access/End Points** 
-* http://localhost:8080/addPost with POST
-* http://localhost:8080/addPerson with POST
-* http://localhost:8080/addStudent with POST
-* http://localhost:8080/findElectedPresident with GET
-* http://localhost:8080/findElectedVicePresedent with GET
-* http://localhost:8080/findElectedSecretary with GET
+* POST http://localhost:8080/addPost
+* POST http://localhost:8080/addPerson
+* POST http://localhost:8080/addStudent
+* GET http://localhost:8080/findElectedPresident
+* GET http://localhost:8080/findElectedVicePresedent
+* GET http://localhost:8080/findElectedSecretary
+
+> **###6. High Level Design{Steps to use this system}**
+* 6 Rest End/Access Points: addPost, addPerson, addStudent, findElectedPresident, findElectedVicePresedent, findElectedSecretary
+* POST: {"post":"President"}->addPost->{"post":"President"}
+* POST: {"name":"satya", "post":"vice-president"}->addPerson->{"name":"satya", "post":"vice-president"}
+* POST: {"name":"Akash", "choiceForPresident":"satya", "choiceForVicePresident":"nitin", "choiceForSecretary":"neeraj"}->addStudent->{"name":"Akash", "choiceForPresident":"satya", "choiceForVicePresident":"nitin", "choiceForSecretary":"neeraj"}
+* GET: findElectedPresident->"satya"
+* GET: findElectedVicePresedent->"nitin"
+* GET: findElectedSecretary->"neeraj"
+* addPost API must be executed before addPerson API, and addPerson API must be executed before addStudent API
+  - addPost > addPerson > addStudent
+  - In addPerson person must enter post already existed in Post table, and in addStudent Student must enter person already existed in Person table
