@@ -65,5 +65,5 @@
                      DAO {student table, return back after saving the data in the student table}
 ```
 
-## 8. Schema Design
-* Related "File" added above with name: "Schema Design"
+## 8. Database Schema Design
+* Related files added above with names: "SchemaDesign.docx" or "SchemaDesignPhoto.PNG"
