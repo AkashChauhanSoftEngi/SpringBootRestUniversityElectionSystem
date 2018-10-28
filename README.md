@@ -30,7 +30,7 @@
 * GET http://localhost:8080/findElectedVicePresedent
 * GET http://localhost:8080/findElectedSecretary
 
-## 6. High Level Design {Steps to use this system}
+## 6. Overview of thr system {High Level Design, HLD}
 ```text
 * 6 Rest End/Access Points: addPost, addPerson, addStudent, findElectedPresident, findElectedVicePresedent, findElectedSecretary
 * POST: {"post":"President"}->addPost->{"post":"President"}
@@ -44,7 +44,7 @@
   - In addPerson person must enter post already existed in Post table, and in addStudent Student must enter person already existed in Person table
 ```
   
-## 7. Internal Work flow of End point or API 
+## 7. Internal Work flow of API or End points {Low Level Design, LLD}
 * Example: /addStudnet
 ```text
                       Student {name, choiceForPresident, choiceForVicePresident, choiceForSecretary}
@@ -64,3 +64,6 @@
                                                       \/
                      DAO {student table, return back after saving the data in the student table}
 ```
+
+## 8. Schema Design
+* Related "File" added above with name: "Schema Design"
