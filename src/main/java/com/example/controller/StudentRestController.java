@@ -23,7 +23,7 @@ public class StudentRestController {
 	public ResponseEntity<PostDto> addPosts(@RequestBody PostDto post) throws Exception {
 		ResponseEntity<PostDto> responseEntity = null;
 		PostDto result = null;
-		System.out.println("Inside /posts end point, to insert posts");		
+		System.out.println("Inside /addPost end point, to insert posts");		
 		result = electionService.savePosts(post);
 		if (result != null) {
 			responseEntity = new ResponseEntity<PostDto>(result, HttpStatus.OK);
@@ -38,7 +38,7 @@ public class StudentRestController {
 		System.out.println("Inside /person end point, to insert Person");
 		ResponseEntity<PersonDto> responseEntity = null;
 		PersonDto result = null;
-		System.out.println("Inside /posts end point, to insert posts");		
+		System.out.println("Inside /addPerson end point, to insert person");		
 		result = electionService.savePerson(person);
 		if (result != null) {
 			responseEntity = new ResponseEntity<PersonDto>(result, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class StudentRestController {
 	public ResponseEntity<StudentDto> addStudent(@RequestBody StudentDto student) throws Exception {
 		ResponseEntity<StudentDto> responseEntity = null;
 
-		System.out.println("Inside /student end point, to insert Student");
+		System.out.println("Inside /addStudent end point, to insert Student");
 
 		StudentDto result = electionService.saveStudent(student);
 		if (result != null) {
